@@ -22,9 +22,15 @@
 
             public string Name { get; set; }
 
+            public string Password { get; set; }
+
+            public string Username { get; set; }
+
             public DateTime BirthDate { get; set; }
 
             public string Email { get; set; }
+
+            public string Image { get; set; }
         }
 
         public class QueryHandler : IRequestHandler<Query, Command>
@@ -47,7 +53,10 @@
                         Id = e.Id,
                         Name = e.Name,
                         Email = e.Email,
-                        BirthDate = e.BirthDate
+                        BirthDate = e.BirthDate,
+                        Password = e.Password,
+                        Username = e.Username,
+                        Image = e.Image
                     })
                     .FirstOrDefaultAsync();
             }
@@ -92,6 +101,9 @@
                 person.Name = request.Name;
                 person.Email = request.Email;
                 person.BirthDate = request.BirthDate;
+                person.Username = request.Username;
+                person.Password = request.Password;
+                person.Image = request.Image;
             }
         }
     }

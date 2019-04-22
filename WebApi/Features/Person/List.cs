@@ -29,6 +29,12 @@
             public string Email { get; set; }
 
             public DateTime BirthDate { get; set; }
+
+            public string Password { get; set; }
+
+            public string Username { get; set; }
+
+            public string Image { get; set; }
         }
 
         public class QueryHandler : IRequestHandler<Query, Dto[]>
@@ -61,7 +67,9 @@
                         Id = e.Id,
                         Name = e.Name,
                         Email = e.Email,
-                        BirthDate = e.BirthDate
+                        BirthDate = e.BirthDate,
+                        Username = e.Username,
+                        Image = e.Image
                     })
                     .AsQueryable();
             }

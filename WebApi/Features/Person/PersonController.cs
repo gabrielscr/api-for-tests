@@ -28,6 +28,10 @@
         [HttpPost]
         public async Task Insert([FromBody]InsertEdit.Command command)
         {
+            Request.Body.Position = 0;
+
+            var teste = new System.IO.StreamReader(Request.Body).ReadToEnd();
+;
             await _mediator.Send(command);
         }
 
@@ -38,7 +42,7 @@
         }
 
         [HttpDelete]
-        public async Task Delete([FromBody]Delete.Command command)
+        public async Task Delete(Delete.Command command)
         {
             await _mediator.Send(command);
         }

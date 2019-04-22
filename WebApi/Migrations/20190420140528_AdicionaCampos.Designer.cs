@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApi.Infra;
 
 namespace WebApi.Migrations
 {
     [DbContext(typeof(ApiContext))]
-    partial class ApiContextModelSnapshot : ModelSnapshot
+    [Migration("20190420140528_AdicionaCampos")]
+    partial class AdicionaCampos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,13 +31,11 @@ namespace WebApi.Migrations
 
                     b.Property<string>("Email");
 
-                    b.Property<string>("Image");
-
                     b.Property<string>("Name");
 
-                    b.Property<string>("Password");
+                    b.Property<double>("Salary");
 
-                    b.Property<string>("Username");
+                    b.Property<bool?>("isMarried");
 
                     b.HasKey("Id");
 
